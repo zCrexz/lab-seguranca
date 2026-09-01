@@ -17,4 +17,15 @@ def avaliar_seguranca_senha(senha):
     return f"FORTE | Hash SHA-256: {hash_senha[:16]}..."
 
 
+
+
 print(avaliar_seguranca_senha("Senha@1234"))
+
+SENHAS_BANIDAS = ["12345678", "senha123", "admin123"]
+
+def validar_blacklist(senha):
+    if senha in SENHAS_BANIDAS:
+        return "ALERTA CRÍTICO: Senha exposta em vazamentos conhecidos!"
+    return "OK: Senha não consta na blacklist."
+
+print(validar_blacklist("12345678"))
